@@ -11,7 +11,7 @@
         'security/ir.model.access.csv',
         'security/security.xml',
         'views/menus.xml',
-        'views/shift_views.xml',
+        # 'views/shift_views.xml',
         'views/expense_views.xml',
         'views/sale_views.xml',
         # 'reports/shift_report_thermal.xml',

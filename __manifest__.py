@@ -10,10 +10,11 @@
         'data/shift_sequence.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
+        'views/menus.xml',
+
         'views/shift_views.xml',
         'views/expense_views.xml',
         'views/sale_views.xml',
-        'views/menus.xml',
         # 'reports/shift_report_thermal.xml',
         # 'reports/shift_report_formal.xml',
         # 'reports/shift_report_actions.xml',

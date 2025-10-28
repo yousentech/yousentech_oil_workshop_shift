@@ -63,6 +63,8 @@ class OilShift(models.Model):
         for rec in self:
             cash_sum = 0.0
             card_sum = 0.0
+            sale_total = 0.0
+            
             for s in rec.sale_ids:
                 # assume oil.work.order has fields: amount_total and payment_type
                 sale_total += s.amount_total

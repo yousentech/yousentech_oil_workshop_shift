@@ -88,7 +88,7 @@
         </record>
 
 
-        <menuitem id="menu_oil_shifts" name="Shifts" parent="menu_oil_Shift_operations" 
+        <menuitem id="menu_oil_shifts" name="Shifts" parent="menu_oil_shift_operations" 
             action="action_oil_shift_tree"/>
 
  

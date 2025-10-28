@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <menuitem id="menu_oil_root" name="Oil Workshop"/>
-  <menuitem id="menu_oil_Shift_operations" name="Shift Operations" parent="yousentech_oil_workshop.menu_operation"/>
-  <menuitem id="menu_oil_expenses" name="Expenses" parent="menu_oil_Shift_operations" action="action_oil_expense_tree"/>
-  <menuitem id="menu_oil_sales" name="Work Orders" parent="menu_oil_Shift_operations" action="action_oil_sale_tree"/>
+  <menuitem id="menu_oil_shift_operations" name="Shift Operations" parent="yousentech_oil_workshop.menu_operation"/>
+  <menuitem id="menu_oil_expenses" name="Expenses" parent="menu_oil_shift_operations" action="action_oil_expense_tree"/>
+  <menuitem id="menu_oil_sales" name="Work Orders" parent="menu_oil_shift_operations" action="action_oil_sale_tree"/>
 
  
   <record id="action_oil_expense_tree" model="ir.actions.act_window">

@@ -33,5 +33,16 @@
         </sheet>
       </form>
     </field>
-  </record>
+   </record>
+  
+    <record id="action_oil_expense_tree" model="ir.actions.act_window">
+      <field name="name">Expenses</field>
+      <field name="res_model">oil.expense</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_oil_expense_tree" />
+
+    </record>
+    
+    <menuitem id="menu_oil_expenses" name="Expenses" parent="menu_oil_shift_operations" action="action_oil_expense_tree"/>
+
 </odoo>

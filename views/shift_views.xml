@@ -53,6 +53,7 @@
                                               <field name="sales_difference"/>
                                               <field name="orders_num"/>
                                               <field name="orders_invoiced_num"/>
+                                              <field name="order_difference"/>
                                         </group>
                                          
                                     </group>

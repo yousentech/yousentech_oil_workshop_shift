@@ -27,7 +27,7 @@ class OilShift(models.Model):
 
     @api.model
     def create(self, vals):
-        open_shifts = self.search([('user_id','=',user),('state','=','open')])
+        open_shifts = self.search([('branch_id','=',self.env.company.id),('state','=','open')])
         if open_shifts:
             raise UserError(_('You already have an open shift (%s). Close it before opening a new one.') % (open_shifts[0].name))
      

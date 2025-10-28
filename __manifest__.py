@@ -7,7 +7,7 @@
     'author': 'Generated for Muhammad Ali',
     'depends': ['base', 'mail', 'account', 'sale', 'yousentech_oil_workshop'],
     'data': [
-        # 'data/shift_sequence.xml',
+        'data/shift_sequence.xml',
         'security/ir.model.access.csv',
         'security/security.xml',
         'views/menus.xml',

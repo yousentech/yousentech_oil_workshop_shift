@@ -8,8 +8,9 @@
     'depends': ['base', 'mail', 'account', 'sale', 'yousentech_oil_workshop'],
     'data': [
         'data/shift_sequence.xml',
+                'security/security.xml',
+
         'security/ir.model.access.csv',
-        'security/security.xml',
         'views/menus.xml',
         'views/shift_views.xml',
         'views/expense_views.xml',

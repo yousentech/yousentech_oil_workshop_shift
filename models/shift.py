@@ -99,7 +99,7 @@ class OilShift(models.Model):
             rec.sales_difference = ((rec.sale_total or 0.0) ) - ((rec.sale_cash_total or 0.0) + (rec.sale_card_total or 0.0) )
             rec.orders_invoiced_num = len(rec.sale_ids.account_move_id.ids)
             rec.orders_num = len(rec.sale_ids.ids)
-            rec.order_difference =   rec.orders_num - rec.orders_invoiced_num 
+            rec.order_difference = rec.orders_num - rec.orders_invoiced_num 
 
     def action_print_thermal(self):
         """طباعة تقرير الشفت بالطابعة الحرارية"""

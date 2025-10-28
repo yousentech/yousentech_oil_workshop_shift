@@ -19,6 +19,7 @@ class OilShift(models.Model):
     expense_total = fields.Float(string='Expenses Total', digits='Product Price', compute='_compute_totals', store=True)
     expected_cash = fields.Float(string='Expected Cash', digits='Product Price', compute='_compute_expected', store=True)
     difference = fields.Float(string='Difference', digits='Product Price', compute='_compute_difference', store=True)
+    sales_difference = fields.Float(string='Difference', digits='Product Price', compute='_compute_difference', store=True)
     note = fields.Text(string='Notes')
     state = fields.Selection([('open','Open'),('closed','Closed')], default='open', string='Status', tracking=True)
 
@@ -78,15 +79,16 @@ class OilShift(models.Model):
             rec.sale_card_total = card_sum
             rec.expense_total = sum(rec.expense_ids.mapped('amount')) or 0.0
 
-    @api.depends('cash_start','sale_cash_total','expense_total','cash_end')
+    @api.depends('cash_start','sale_cash_total','expense_total','sale_total','cash_end')
     def _compute_expected(self):
         for rec in self:
-            rec.expected_cash = (rec.cash_start or 0.0) + (rec.sale_cash_total or 0.0) - (rec.expense_total or 0.0)
+            rec.expected_cash = (rec.cash_start or 0.0) +  (rec.sale_cash_total or 0.0) - (rec.expense_total or 0.0)
 
     @api.depends('expected_cash','cash_end')
     def _compute_difference(self):
         for rec in self:
             rec.difference = (rec.cash_end or 0.0) - (rec.expected_cash or 0.0)
+            rec.sales_difference = ((rec.sale_total or 0.0) + (rec.cash_start or 0.0)) - ((rec.sale_cash_total or 0.0) + (rec.sale_card_total or 0.0) + (rec.expense_total or 0.0))
     
     def action_print_thermal(self):
         """طباعة تقرير الشفت بالطابعة الحرارية"""

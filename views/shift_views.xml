@@ -34,6 +34,7 @@
                           <field name="expected_cash"/>
                           <field name="cash_end"/>
                           <field name="difference"/>
+                          <field name="sales_difference"/>
                         </group>
                         <notebook>
                           <!-- <page string="Work Orders">

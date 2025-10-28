@@ -45,15 +45,15 @@
                                         <group string="📌 Cash Collection Info">
                                                <field name="expected_cash"  style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
                                               <field name="cash_end" readonly="state == 'closed'"/>
-                                              <field name="difference" decoration-danger="difference == 0"  style="font-weight:bold;"/>
+                                              <field name="difference" decoration-danger="difference != 0"  style="font-weight:bold;"/>
                                         </group>
                                          
                                         <group string="📌 Sales History">
                                               <field name="sale_total"  style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
-                                              <field name="sales_difference"  decoration-danger="difference == 0"  style="font-weight:bold;"/>
+                                              <field name="sales_difference"  decoration-danger="difference != 0"  style="font-weight:bold;"/>
                                               <field name="orders_num"/>
                                               <field name="orders_invoiced_num"  style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
-                                              <field name="order_difference" decoration-danger="difference == 0"  style="font-weight:bold;"/>
+                                              <field name="order_difference" decoration-danger="difference != 0"  style="font-weight:bold;"/>
                                         </group>
                                          
                                     </group>

@@ -27,6 +27,7 @@
                         </group>
                         <group>
                           <field name="cash_start"/>
+                          <field name="sale_total"/>
                           <field name="sale_cash_total"/>
                           <field name="sale_card_total"/>
                           <field name="expense_total"/>

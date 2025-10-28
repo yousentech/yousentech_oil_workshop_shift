@@ -13,6 +13,7 @@ class OilShift(models.Model):
     end_time = fields.Datetime(string='End Time')
     cash_start = fields.Float(string='Cash Start', digits='Product Price')
     cash_end = fields.Float(string='Cash End', digits='Product Price')
+    sale_total = fields.Float(string='Sales Total', digits='Product Price', compute='_compute_totals', store=True)
     sale_cash_total = fields.Float(string='Cash Sales Total', digits='Product Price', compute='_compute_totals', store=True)
     sale_card_total = fields.Float(string='Card Sales Total', digits='Product Price', compute='_compute_totals', store=True)
     expense_total = fields.Float(string='Expenses Total', digits='Product Price', compute='_compute_totals', store=True)
@@ -26,13 +27,14 @@ class OilShift(models.Model):
 
     @api.model
     def create(self, vals):
+        open_shifts = self.search([('user_id','=',user),('state','=','open')])
+        if open_shifts:
+            raise UserError(_('You already have an open shift (%s). Close it before opening a new one.') % (open_shifts[0].name))
+     
         if vals.get('name', 'New') == 'New':
             seq = self.env['ir.sequence'].sudo().next_by_code('oil.shift')
             vals['name'] = seq or 'New'
         user = vals.get('user_id') or self.env.user.id
-        open_shifts = self.search([('user_id','=',user),('state','=','open')])
-        if open_shifts:
-            raise UserError(_('You already have an open shift (%s). Close it before opening a new one.') % (open_shifts[0].name))
         return super().create(vals)
 
     def action_open_shift(self):
@@ -53,18 +55,23 @@ class OilShift(models.Model):
             rec.end_time = fields.Datetime.now()
             rec.state = 'closed'
         return True
+    
 
-    @api.depends('sale_ids.amount_total','sale_ids.payment_type','expense_ids.amount')
+
+    @api.depends('sale_ids.amount_total','expense_ids.amount')
     def _compute_totals(self):
         for rec in self:
             cash_sum = 0.0
             card_sum = 0.0
             for s in rec.sale_ids:
                 # assume oil.work.order has fields: amount_total and payment_type
-                if getattr(s, 'payment_type', False) == 'card':
-                    card_sum += s.amount_total or 0.0
-                else:
-                    cash_sum += s.amount_total or 0.0
+                sale_total += s.amount_total
+            for move in rec.sale_ids.account_move_id:
+                card_sum += move.get_payment_amt_of_invoice('cash') or 0.0
+            
+                cash_sum += move.get_payment_amt_of_invoice('bank') or 0.0
+
+            rec.sale_total = sale_total
             rec.sale_cash_total = cash_sum
             rec.sale_card_total = card_sum
             rec.expense_total = sum(rec.expense_ids.mapped('amount')) or 0.0
@@ -78,3 +85,13 @@ class OilShift(models.Model):
     def _compute_difference(self):
         for rec in self:
             rec.difference = (rec.cash_end or 0.0) - (rec.expected_cash or 0.0)
+    
+    def action_print_thermal(self):
+        """طباعة تقرير الشفت بالطابعة الحرارية"""
+        self.ensure_one()
+        return self.env.ref('yousentech_oil_workshop_shift.action_report_oil_shift_thermal').report_action(self)
+
+    def action_print_formal(self):
+        """طباعة تقرير الشفت الرسمي للتوقيع"""
+        self.ensure_one()
+        return self.env.ref('yousentech_oil_workshop_shift.action_report_oil_shift_formal').report_action(self)

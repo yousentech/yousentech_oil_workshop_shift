@@ -5,7 +5,7 @@
     "description": "Manage shifts, record sales & expenses and print thermal/formal closing reports.",
     "category": "Operations/Workshop",
     "author": "Generated for Muhammad Ali",
-    "depends": ["base", "mail", "account", "sale"],
+    "depends": ["base", "mail", "account", "sale",'yousentech_oil_workshop'],
     "data": [
         "data/shift_sequence.xml",
         "security/security.xml",

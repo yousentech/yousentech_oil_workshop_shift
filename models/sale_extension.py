@@ -13,4 +13,8 @@ class OilWorkOrder(models.Model):
             open_shift = self.env['oil.shift'].search([('user_id','=',user_id),('state','=','open')], limit=1)
             if open_shift:
                 vals['shift_id'] = open_shift.id
+        
+            if not open_shift:
+                raise UserError(_('You must open a shift before recording a sale.'))
+
         return super().create(vals)

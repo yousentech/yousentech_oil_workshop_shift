@@ -2,9 +2,24 @@
   <record id="view_oil_work_order_tree_ext" model="ir.ui.view">
     <field name="name">oil.work.order.tree.inherit.shift</field>
     <field name="model">oil.work.order</field>
-    <field name="inherit_id" ref="oil_workshop.view_oil_work_order_tree" ifeval="0"/>
+    <field name="inherit_id" ref="yousentech_oil_workshop_shift.view_work_order_tree" ifeval="0"/>
     <field name="arch" type="xml">
-      <!-- If your existing module defines a tree view, adapt or create if not exists -->
+          <field name = 'order_seq' position = "after" >
+               <field name = "shift_id" />
+          
+          </field> 
     </field>
   </record>
+  <record id="view_oil_work_order_form_ext" model="ir.ui.view">
+    <field name="name">oil.work.order.form.inherit.shift</field>
+    <field name="model">oil.work.order</field>
+    <field name="inherit_id" ref="yousentech_oil_workshop.view_work_order_form" ifeval="0"/>
+    <field name="arch" type="xml">
+          <field name = 'order_seq' position = "after" >
+               <field name = "shift_id" />
+          
+          </field>  
+      </field>
+  </record>
+  
 </odoo>

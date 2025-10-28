@@ -21,7 +21,7 @@
                     <!-- ======================================= -->
                     <group>
                                     <group>
-                                        <group string="📦 Branch Info" col="2">
+                                        <group string="📦 Shift Info" col="2">
                                           <field name="name"/>
                                           <field name="user_id" readonly="1" force_save="1"/>
                                           <field name="branch_id" readonly="1" force_save="1"/>
@@ -35,12 +35,18 @@
                                               <field name="sale_card_total"/>
                                               <field name="expense_total"/>
                                               <field name="expected_cash"/>
-                                              <field name="cash_end" readonly="state == 'closed'"/>
-                                              <field name="difference"/>
+                                             
                                         </group>
                                 
                                     </group>
                                     <group>
+
+                                        <group string="📌 Cash Collection Info">
+                                               <field name="expected_cash"/>
+                                              <field name="cash_end" readonly="state == 'closed'"/>
+                                              <field name="difference"/>
+                                        </group>
+                                         
                                         <group string="📌 Sales History">
                                               <field name="sale_total"/>
                                               <field name="sales_difference"/>

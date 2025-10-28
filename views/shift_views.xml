@@ -1,0 +1,75 @@
+<odoo>
+  <record id="view_oil_shift_tree" model="ir.ui.view">
+    <field name="name">oil.shift.tree</field>
+    <field name="model">oil.shift</field>
+    <field name="arch" type="xml">
+      <tree string="Shifts">
+        <field name="name"/>
+        <field name="user_id"/>
+        <field name="start_time"/>
+        <field name="end_time"/>
+        <field name="sale_cash_total"/>
+        <field name="expense_total"/>
+        <field name="difference"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_oil_shift_form" model="ir.ui.view">
+    <field name="name">oil.shift.form</field>
+    <field name="model">oil.shift</field>
+    <field name="arch" type="xml">
+      <form string="Oil Shift">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="user_id"/>
+            <field name="branch_id"/>
+            <field name="start_time"/>
+            <field name="end_time"/>
+          </group>
+          <group>
+            <field name="cash_start"/>
+            <field name="sale_cash_total"/>
+            <field name="sale_card_total"/>
+            <field name="expense_total"/>
+            <field name="expected_cash"/>
+            <field name="cash_end"/>
+            <field name="difference"/>
+          </group>
+          <notebook>
+            <page string="Work Orders">
+              <field name="sale_ids">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="partner_id"/>
+                  <field name="amount_total"/>
+                  <field name="payment_type"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Expenses">
+              <field name="expense_ids">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <field name="amount"/>
+                  <field name="date"/>
+                </tree>
+              </field>
+            </page>
+            <page string="Notes">
+              <field name="note"/>
+            </page>
+          </notebook>
+          <footer>
+            <button name="action_open_shift" type="object" string="Open Shift" attrs="{'invisible':[('state','in',['open','closed'])]}" class="btn-primary"/>
+            <button name="action_close_shift" type="object" string="Close Shift" attrs="{'invisible':[('state','!=','open')]}"/>
+            <button name="action_print_thermal" type="object" string="Print Thermal"/>
+            <button name="action_print_formal" type="object" string="Print Formal"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

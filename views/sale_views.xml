@@ -1,0 +1,10 @@
+<odoo>
+  <record id="view_oil_work_order_tree_ext" model="ir.ui.view">
+    <field name="name">oil.work.order.tree.inherit.shift</field>
+    <field name="model">oil.work.order</field>
+    <field name="inherit_id" ref="oil_workshop.view_oil_work_order_tree" ifeval="0"/>
+    <field name="arch" type="xml">
+      <!-- If your existing module defines a tree view, adapt or create if not exists -->
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oil_shift_user,access.oil.shift.user,model_oil_shift,oil_workshop.group_oil_workshop_user,1,0,1,0
+access_oil_shift_manager,access.oil.shift.manager,model_oil_shift,oil_workshop.group_oil_workshop_manager,1,1,1,0
+access_oil_shift_admin,access.oil_shift_admin,model_oil_shift,oil_workshop.group_oil_workshop_admin,1,1,1,1
+access_oil_expense_user,access.oil.expense.user,model_oil_expense,oil_workshop.group_oil_workshop_user,1,1,1,0
+access_oil_sale_user,access.oil.sale.user,model_oil_work_order_sale,oil_workshop.group_oil_workshop_user,1,1,1,0

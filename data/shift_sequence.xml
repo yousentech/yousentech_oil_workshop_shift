@@ -1,0 +1,8 @@
+<odoo>
+  <record id="seq_oil_shift" model="ir.sequence">
+    <field name="name">Oil Shift</field>
+    <field name="code">oil.shift</field>
+    <field name="prefix">OSH/</field>
+    <field name="padding">4</field>
+  </record>
+</odoo>

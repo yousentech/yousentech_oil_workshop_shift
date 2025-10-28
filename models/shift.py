@@ -99,7 +99,7 @@ class OilShift(models.Model):
         self.ensure_one()
         return self.env.ref('yousentech_oil_workshop_shift.action_report_oil_shift_thermal').report_action(self)
 
-    def action_print_formal(self):
+    def action_print_normal(self):
         """طباعة تقرير الشفت الرسمي للتوقيع"""
         self.ensure_one()
         return self.env.ref('yousentech_oil_workshop_shift.action_report_oil_shift_formal').report_action(self)

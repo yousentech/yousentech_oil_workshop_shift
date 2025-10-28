@@ -31,8 +31,9 @@
                                         </group>
                                         <group string="📦 Payments" col="2">
                                              <field name="cash_start" readonly="state == 'closed'"/>
+                                             <field name="sale_card_total"/>
+
                                               <field name="sale_cash_total"/>
-                                              <field name="sale_card_total"/>
                                               <field name="expense_total"/>
                                               <field name="expected_cash"/>
                                              

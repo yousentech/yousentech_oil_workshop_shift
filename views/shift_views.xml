@@ -51,6 +51,8 @@
                                         <group string="📌 Sales History">
                                               <field name="sale_total"/>
                                               <field name="sales_difference"/>
+                                              <field name="orders_num"/>
+                                              <field name="orders_invoiced_num"/>
                                         </group>
                                          
                                     </group>

@@ -57,7 +57,11 @@ class OilShift(models.Model):
             rec.state = 'closed'
         return True
     
-
+    def refresh_result(self):
+        for rec in self:
+            rec._compute_totals()
+            rec._compute_expected()
+            rec._compute_difference()
 
     @api.depends('sale_ids.amount_total','expense_ids.amount')
     def _compute_totals(self):

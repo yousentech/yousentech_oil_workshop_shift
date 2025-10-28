@@ -39,8 +39,8 @@
                         </group>
                         <notebook>
                           <page string="Work Orders">
-                            <field name="sale_ids">
-                              <tree editable="bottom" readonly="1">
+                            <field name="sale_ids" readonly="1">
+                              <tree editable="bottom" >
                                 <field name="order_seq"/>
                                 <field name="partner_id"/>
                                 <field name="amount_total"/>
@@ -49,8 +49,8 @@
                             </field>
                           </page>
                           <page string="Expenses">
-                            <field name="expense_ids">
-                              <tree editable="bottom" readonly="parent.state == 'closed'">
+                            <field name="expense_ids" readonly="state == 'closed'">
+                              <tree editable="bottom" >
                                 <field name="name"/>
                                 <field name="amount"/>
                                 <field name="date"/>

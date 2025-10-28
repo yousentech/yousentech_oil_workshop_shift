@@ -39,7 +39,7 @@
             <field name="difference"/>
           </group>
           <notebook>
-            <page string="Work Orders">
+            <!-- <page string="Work Orders">
               <field name="sale_ids">
                 <tree editable="bottom">
                   <field name="order_seq"/>
@@ -48,7 +48,7 @@
                   <field name="employee_id"/>
                 </tree>
               </field>
-            </page>
+            </page> -->
             <page string="Expenses">
               <field name="expense_ids">
                 <tree editable="bottom">

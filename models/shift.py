@@ -22,6 +22,8 @@ class OilShift(models.Model):
     sales_difference = fields.Float(string='Sales Difference', digits='Product Price', compute='_compute_difference', store=True)
     orders_num = fields.Float(string='Orders Num', digits='Product Price', compute='_compute_difference', store=True)
     orders_invoiced_num = fields.Float(string='Orders Invoiced Num', digits='Product Price', compute='_compute_difference', store=True)
+    order_difference = fields.Float(string='Orders Difference', digits='Product Price', compute='_compute_difference', store=True)
+
     note = fields.Text(string='Notes')
     state = fields.Selection([('open','Open'),('closed','Closed')], default='open', string='Status', tracking=True)
 
@@ -97,6 +99,8 @@ class OilShift(models.Model):
             rec.sales_difference = ((rec.sale_total or 0.0) ) - ((rec.sale_cash_total or 0.0) + (rec.sale_card_total or 0.0) )
             rec.orders_invoiced_num = len(rec.sale_ids.account_move_id.ids)
             rec.orders_num = len(rec.sale_ids.ids)
+            rec.order_difference =   rec.orders_num - rec.orders_invoiced_num 
+
     def action_print_thermal(self):
         """طباعة تقرير الشفت بالطابعة الحرارية"""
         self.ensure_one()

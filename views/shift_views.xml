@@ -65,8 +65,10 @@
             </page>
           </notebook>
           <footer>
-            <button name="action_open_shift" type="object" string="Open Shift" invisible="state in ['open','closed']" class="btn-primary"/>
-            <button name="action_close_shift" type="object" string="Close Shift" invisible="state != 'open'"/>
+            <!-- <button name="action_open_shift" type="object" string="Open Shift" invisible="state in ['open','closed']" class="btn-primary"/>
+            <button name="action_close_shift" type="object" string="Close Shift" invisible="state != 'open'"/> -->
+            <button name="action_open_shift" type="object" string="Open Shift"   class="btn-primary"/>
+            <button name="action_close_shift" type="object" string="Close Shift"/>
             <button name="action_print_thermal" type="object" string="Print Thermal"/>
             <button name="action_print_formal" type="object" string="Print Formal"/>
           </footer>

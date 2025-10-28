@@ -3,7 +3,7 @@ from odoo import models, fields, api
 class OilWorkOrder(models.Model):
     _inherit = 'oil.work.order'
 
-    shift_id = fields.Many2one('oil.shift', string='Shift', readonly=True)
+    shift_id = fields.Many2one('oil.shift', string='Shift',)
 
     @api.model
     def create(self, vals):

@@ -1,5 +1,5 @@
 {
-    'name': 'Oil Workshop - Shift Management',
+    'name': 'yousentech_oil_workshop_shift',
     'version': '1.0.0',
     'summary': 'Shift closing, expenses and reports for oil workshop',
     'description': 'Manage shifts, record sales & expenses and print thermal/formal closing reports.',

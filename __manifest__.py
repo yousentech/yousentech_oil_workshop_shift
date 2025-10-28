@@ -12,7 +12,7 @@
         'security/security.xml',
         'views/menus.xml',
         'views/shift_views.xml',
-        # 'views/expense_views.xml',
+        'views/expense_views.xml',
         # 'views/sale_views.xml',
         # 'reports/shift_report_thermal.xml',
         # 'reports/shift_report_formal.xml',

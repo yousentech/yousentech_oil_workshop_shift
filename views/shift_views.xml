@@ -31,11 +31,11 @@
                                         </group>
                                         <group string="📦 Payments" col="2">
                                              <field name="cash_start" readonly="state == 'closed'"/>
-                                             <field name="sale_card_total"/>
+                                             <field name="sale_card_total"   style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
 
-                                              <field name="sale_cash_total"/>
+                                              <field name="sale_cash_total"   style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
                                               <field name="expense_total"/>
-                                              <field name="expected_cash"/>
+                                              <!-- <field name="expected_cash"/> -->
                                              
                                         </group>
                                 

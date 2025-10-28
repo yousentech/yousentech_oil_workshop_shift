@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import UserError
 
 class OilWorkOrder(models.Model):
     _inherit = 'oil.work.order'

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+  <date>
   <record id="view_oil_shift_tree" model="ir.ui.view">
     <field name="name">oil.shift.tree</field>
     <field name="model">oil.shift</field>
@@ -77,4 +78,5 @@
       </form>
     </field>
   </record>
+  </data>
 </odoo>

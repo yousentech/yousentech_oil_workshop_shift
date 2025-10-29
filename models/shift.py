@@ -58,7 +58,14 @@ class OilShift(models.Model):
             rec._compute_expected()
             rec._compute_difference()
             rec.end_time = fields.Datetime.now()
+            if rec.order_difference:
+                if rec.orders_num > rec.orders_invoiced_num:
+                    raise UserError(_('Warning: No. of order more than order invoiced please confirm it or delete it. (diff order: %s)' % rec.order_difference))
+            if rec.sales_difference:
+                raise UserError(_('Warning: there are Unpaid Invoices. (Total of unpaid invoices: %s)' % rec.sales_difference))
+
             rec.state = 'closed'
+
         return True
     
     def refresh_result(self):

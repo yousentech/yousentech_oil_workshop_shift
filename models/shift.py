@@ -42,13 +42,13 @@ class OilShift(models.Model):
         user = vals.get('user_id') or self.env.user.id
         return super().create(vals)
 
-    def action_open_shift(self):
-        for rec in self:
-            existing = self.search([('user_id','=',rec.user_id.id),('state','=','open'),('id','!=',rec.id)])
-            if existing:
-                raise UserError(_('Cannot open this shift because another open shift exists (%s).') % existing[0].name)
-            rec.state = 'open'
-            rec.start_time = fields.Datetime.now()
+    # def action_open_shift(self):
+    #     for rec in self:
+    #         existing = self.search([('user_id','=',rec.user_id.id),('state','=','open'),('id','!=',rec.id)])
+    #         if existing:
+    #             raise UserError(_('Cannot open this shift because another open shift exists (%s).') % existing[0].name)
+    #         rec.state = 'open'
+    #         rec.start_time = fields.Datetime.now()
 
     def action_close_shift(self):
         for rec in self:

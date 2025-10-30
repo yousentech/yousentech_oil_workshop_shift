@@ -81,12 +81,12 @@ class OilShift(models.Model):
         for rec in self:
             if len(rec.sale_ids):
                    raise UserError(_('you can not deleted because the Shift data is related with work order.'))
-            if rec.state == 'clsed':
+            if rec.state == 'closed':
                 raise UserError(_('you can not deleted because the Shift state is closed.'))
 
-            return super().unlink()
+        return super().unlink()
 
-            
+
     @api.depends('sale_ids.amount_total','expense_ids.amount')
     def _compute_totals(self):
         for rec in self:

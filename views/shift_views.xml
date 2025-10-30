@@ -10,7 +10,7 @@
                       <field name="state" widget="statusbar"/>
                     <button name="refresh_result" type="object" string="Refresh Data" invisible="state in ['closed']" class="btn-primary"/>
 
-                      <button name="action_close_shift" type="object" string="Close Shift"   class="btn btn-success" />
+                      <button name="action_close_shift" type="object" string="Close Shift"   class="btn btn-success" invisible="state == 'closed'" />
                       <button name="cancel_close_shift" type="object" string="Cancel Close Shift"   class="btn btn-danger"  groups="yousentech_oil_workshop_shift.group_allow_un_cancel_oil_wo_shift" invisible="state == 'open'" />
                       <button name="action_print_thermal" type="object" string="Print Thermal"/>
                       <button name="action_print_normal" type="object" string="Print Formal"/>

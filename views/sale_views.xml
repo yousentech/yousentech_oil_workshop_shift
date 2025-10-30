@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
   <!-- ✅ تعديل عرض الشجرة -->
-  <record id="view_oil_work_order_tree_ext" model="ir.ui.view">
+  <record id="view_oil_work_order_shift_tree_ext" model="ir.ui.view">
     <field name="name">oil.work.order.tree.inherit.shift</field>
     <field name="model">oil.work.order</field>
     <field name="inherit_id" ref="yousentech_oil_workshop.view_work_order_tree"/>
@@ -13,7 +13,7 @@
   </record>
 
   <!-- ✅ تعديل عرض النموذج -->
-  <record id="view_oil_work_order_form_ext" model="ir.ui.view">
+  <record id="view_oil_work_order_shift_form_ext" model="ir.ui.view">
     <field name="name">oil.work.order.form.inherit.shift</field>
     <field name="model">oil.work.order</field>
     <field name="inherit_id" ref="yousentech_oil_workshop.view_work_order_form"/>

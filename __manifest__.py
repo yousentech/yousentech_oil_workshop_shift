@@ -12,6 +12,7 @@
 
         'security/ir.model.access.csv',
         'views/menus.xml',
+        'views/account_journal.xml',
         'views/shift_views.xml',
         'views/expense_views.xml',
         'views/sale_views.xml',

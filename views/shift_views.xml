@@ -10,8 +10,8 @@
                       <field name="state" widget="statusbar"/>
                     <button name="refresh_result" type="object" string="Refresh Data" invisible="state in ['closed']" class="btn-primary"/>
 
-                      <button name="action_close_shift" type="object" string="Close Shift"
-                        class="btn btn-success" 
+                      <button name="action_close_shift" type="object" string="Close Shift"   class="btn btn-success" 
+                      <button name="cancel_close_shift" type="object" string="Cancel Close Shift"   class="btn btn-danger" 
                       
                        invisible="state != 'open'" />
                       <button name="action_print_thermal" type="object" string="Print Thermal"/>

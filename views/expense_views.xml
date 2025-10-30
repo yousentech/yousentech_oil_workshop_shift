@@ -43,6 +43,6 @@
 
     </record>
     
-    <menuitem id="menu_oil_expenses" name="Expenses" parent="menu_oil_shift_operations" action="action_oil_expense_tree"/>
+    <!-- <menuitem id="menu_oil_expenses" name="Expenses" parent="menu_oil_shift_operations" action="action_oil_expense_tree"/> -->
 
 </odoo>

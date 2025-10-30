@@ -68,7 +68,7 @@ class OilShift(models.Model):
             rec.state = 'closed'
 
         return True
-     def cancel_close_shift(self)
+     def cancel_close_shift(self):
         for rec in self:
             rec.write({'state': 'open'})
     

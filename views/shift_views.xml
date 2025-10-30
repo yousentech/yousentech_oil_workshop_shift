@@ -5,7 +5,7 @@
           <field name="name">oil.shift.form</field>
           <field name="model">oil.shift</field>
           <field name="arch" type="xml">
-                <form>
+                <form duplicate="0">
                   <header>
                       <field name="state" widget="statusbar"/>
                     <button name="refresh_result" type="object" string="Refresh Data" invisible="state in ['closed']" class="btn-primary"/>

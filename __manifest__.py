@@ -21,6 +21,6 @@
         'reports/shift_report_actions.xml',
     ],
     'installable': True,
-    'application': False,
+    'application': True,
     'license': 'LGPL-3',
 }

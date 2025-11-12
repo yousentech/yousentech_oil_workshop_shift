@@ -11,7 +11,7 @@ class OilWorkOrder(models.Model):
         # Link to current open shift for the user if exists
         if not vals.get('shift_id'):
             user_id = vals.get('user_id') or self.env.uid
-            open_shift = self.env['oil.shift'].search([('company_id','=',vals.get('company_id')),('state','=','open')], limit=1)
+            open_shift = self.env['oil.shift'].search([('branch_id','=',rec.company_id.id),('state','=','open')], limit=1)
             if open_shift:
                 vals['shift_id'] = open_shift.id
         

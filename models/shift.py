@@ -55,6 +55,8 @@ class OilShift(models.Model):
         for rec in self:
             if rec.state != 'open':
                 raise UserError(_('Shift is not open.'))
+            if not rec.collector_journal_id:
+                 raise UserError(_('PLease select collector.'))
             rec._compute_totals()
             rec._compute_expected()
             rec._compute_difference()

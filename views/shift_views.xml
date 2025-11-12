@@ -37,7 +37,7 @@
 
                                               <field name="sale_cash_total"   style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
                                               <field name="expense_total"/>
-                                              <field name="collector_journal_id" readonly="state == 'closed'" required="1"/>
+                                              <field name="collector_journal_id" readonly="state == 'closed'" />
                                              
                                         </group>
                                 

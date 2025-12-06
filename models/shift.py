@@ -34,7 +34,7 @@ class OilShift(models.Model):
 
     def unlink(self):
         for rec in self:
-            if rec.sale_ids
+            if rec.sale_ids:
                 raise UserError(_('You can not delete the shift Data because it related with work orders'))
            
         return super().unlink()

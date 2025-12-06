@@ -79,7 +79,7 @@
                                 <field name="partner_id"/>
                                 <field name="amount_total"  sum="Total"/>
                                 <field name="payment_total"  sum="Total"/>
-                                <field name="renmaining_payment" sum="Total"/>
+                                <field name="remaining_payment" sum="Total"/>
                                 <field name="state"/>
                               </tree>
                             </field>

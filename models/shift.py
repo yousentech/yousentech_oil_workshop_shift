@@ -32,7 +32,7 @@ class OilShift(models.Model):
     expense_ids = fields.One2many('oil.expense', 'shift_id', string='Expenses')
 
 
-    def unlink(self)
+    def unlink(self):
         for rec in self:
             if rec.sale_ids
                 raise UserError(_('You can not delete the shift Data because it related with work orders'))

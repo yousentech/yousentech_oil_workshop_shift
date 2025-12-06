@@ -74,7 +74,8 @@
                           </page>
                           <page string="Work Orders">
                             <field name="sale_ids" readonly="1">
-                              <tree editable="bottom" >
+                              <tree editable="bottom" decoration-danger="remaining_payment != 0" >
+ 
                                 <field name="order_seq"/>
                                 <field name="partner_id"/>
                                 <field name="amount_total"  sum="Total"/>

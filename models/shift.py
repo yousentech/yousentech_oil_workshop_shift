@@ -31,18 +31,28 @@ class OilShift(models.Model):
     sale_ids = fields.One2many('oil.work.order', 'shift_id', string='Work Orders')
     expense_ids = fields.One2many('oil.expense', 'shift_id', string='Expenses')
 
- 
     @api.model
     def create(self, vals):
-        open_shifts = self.search([('branch_id','=',self.env.company.id),('state','=','open')])
+ 
+        open_shifts = self.search([
+            ('branch_id', '=', self.env.company.id),
+            ('state', '=', 'open')
+        ])
         if open_shifts:
-            raise UserError(_('You already have an open shift (%s). Close it before opening a new one.') % (open_shifts[0].name))
-     
+            raise UserError(_(
+                'You already have an open shift (%s). Close it before opening a new one.'
+            ) % (open_shifts[0].name))
+
+ 
         if vals.get('name', 'New') == 'New':
-            seq = self.env['ir.sequence'].sudo().next_by_code('oil.shift')
+            seq = self.env['ir.sequence'].with_company(self.env.company.id).next_by_code('oil.shift')
             vals['name'] = seq or 'New'
+
+  
         user = vals.get('user_id') or self.env.user.id
+
         return super().create(vals)
+
 
     # def action_open_shift(self):
     #     for rec in self:

@@ -1,8 +1,10 @@
 <odoo>
-  <record id="seq_oil_shift" model="ir.sequence">
-    <field name="name">Oil Shift</field>
-    <field name="code">oil.shift</field>
-    <field name="prefix">OSH/</field>
-    <field name="padding">4</field>
-  </record>
+    <!-- Sequence Default (يمكن نسخه لكل شركة من الجهاز) -->
+    <record id="seq_oil_shift" model="ir.sequence">
+        <field name="name">Oil Shift</field>
+        <field name="code">oil.shift</field>
+        <field name="prefix">SHIFT/%(year)s/</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>   <!-- مهم! يسمح بتعدد الشركات -->
+    </record>
 </odoo>

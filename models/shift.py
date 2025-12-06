@@ -99,10 +99,10 @@ class OilShift(models.Model):
             for s in rec.sale_ids:
                 # assume oil.work.order has fields: amount_total and payment_type
                 sale_total += s.amount_total
-            for move in rec.sale_ids.account_move_id:
-                cash_sum += move.get_payment_amt_of_invoice('cash') or 0.0
+            for wo_id in rec.sale_ids:
+                cash_sum += wo_id.get_cash_payment_amount(rec.account_move_id) or 0.0
             
-                card_sum += move.get_payment_amt_of_invoice('bank') or 0.0
+                card_sum += wo_id.get_bank_payment_amount(rec.account_move_id) or 0.0
 
             rec.sale_total = sale_total
             rec.sale_cash_total = cash_sum

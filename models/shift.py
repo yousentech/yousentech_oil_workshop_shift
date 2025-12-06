@@ -37,7 +37,7 @@ class OilShift(models.Model):
             if rec.sale_ids
                 raise UserError(_('You can not delete the shift Data because it related with work orders'))
            
-            return super().unlink()
+        return super().unlink()
 
     @api.model
     def create(self, vals):

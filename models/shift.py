@@ -108,9 +108,9 @@ class OilShift(models.Model):
                 # assume oil.work.order has fields: amount_total and payment_type
                 sale_total += s.amount_total
             for wo_id in rec.sale_ids:
-                cash_sum += wo_id.get_cash_payment_amount(rec.account_move_id) or 0.0
+                cash_sum += wo_id.get_cash_payment_amount(wo_id.account_move_id) or 0.0
             
-                card_sum += wo_id.get_bank_payment_amount(rec.account_move_id) or 0.0
+                card_sum += wo_id.get_bank_payment_amount(wo_id.account_move_id) or 0.0
 
             rec.sale_total = sale_total
             rec.sale_cash_total = cash_sum

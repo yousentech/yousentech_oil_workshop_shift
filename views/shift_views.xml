@@ -77,7 +77,9 @@
                               <tree editable="bottom" >
                                 <field name="order_seq"/>
                                 <field name="partner_id"/>
-                                <field name="amount_total"/>
+                                <field name="amount_total"  sum="Total"/>
+                                <field name="payment_total"  sum="Total"/>
+                                <field name="renmaining_payment" sum="Total"/>
                                 <field name="state"/>
                               </tree>
                             </field>

@@ -31,14 +31,7 @@ class OilShift(models.Model):
     sale_ids = fields.One2many('oil.work.order', 'shift_id', string='Work Orders')
     expense_ids = fields.One2many('oil.expense', 'shift_id', string='Expenses')
 
-
-    def unlink(self):
-        for rec in self:
-            if rec.sale_ids:
-                raise UserError(_('You can not delete the shift Data because it related with work orders'))
-           
-        return super().unlink()
-
+ 
     @api.model
     def create(self, vals):
         open_shifts = self.search([('branch_id','=',self.env.company.id),('state','=','open')])

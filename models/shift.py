@@ -78,7 +78,7 @@ class OilShift(models.Model):
 
             rec.state = 'closed'
             
-            if vals.get('name', 'New') == 'New':
+            if rec.name == 'New':
                 seq = self.env['ir.sequence'].with_company(self.company_id.id).next_by_code('oil.shift')
                 self.write({'name': seq or 'New' }) 
 

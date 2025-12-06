@@ -8,7 +8,7 @@ class OilShift(models.Model):
 
     name = fields.Char(string='Shift Reference', required=True, copy=False, readonly=True, default='New')
     user_id = fields.Many2one('res.users', string='Employee', default=lambda self: self.env.user, required=True)
-    branch_id = fields.Many2one('res.company', string='Branch', default=lambda self: self.env.company)
+    company_id = fields.Many2one('res.company', string='Branch', default=lambda self: self.env.company)
     collector_journal_id = fields.Many2one('account.journal', string='Collector',domain=[('collection_journal_flag','=',True)])
     start_time = fields.Datetime(string='Start Time', default=fields.Datetime.now)
     end_time = fields.Datetime(string='End Time')
@@ -35,7 +35,7 @@ class OilShift(models.Model):
     def create(self, vals):
  
         open_shifts = self.search([
-            ('branch_id', '=', self.env.company.id),
+            ('company_id', '=', self.env.company.id),
             ('state', '=', 'open')
         ])
         if open_shifts:
@@ -79,7 +79,7 @@ class OilShift(models.Model):
             rec.state = 'closed'
             
             if vals.get('name', 'New') == 'New':
-                seq = self.env['ir.sequence'].with_company(self.env.company.id).next_by_code('oil.shift')
+                seq = self.env['ir.sequence'].with_company(self.company_id.id).next_by_code('oil.shift')
                 self.write({'name': seq or 'New' }) 
 
 

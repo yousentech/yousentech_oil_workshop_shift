@@ -26,7 +26,7 @@
                                         <group string="📦 Shift Info" col="2">
                                           <field name="name"/>
                                           <field name="user_id" readonly="1" force_save="1"/>
-                                          <field name="branch_id" readonly="1" force_save="1"/>
+                                          <field name="company_id" readonly="1" force_save="1"/>
                                           <field name="start_time" readonly="1" force_save="1"/>
                                           <field name="end_time" readonly="1" force_save="1"/>
                                              
@@ -101,7 +101,8 @@
             <field name="arch" type="xml">
                <tree string="Shifts">
                   <field name="name"/>
-                  <field name="user_id"/>
+                  <field name="company_id"/>
+                  <!-- <field name="user_id"/> -->
                   <field name="start_time"/>
                   <field name="end_time"/>
                   <field name="sale_cash_total"/>
@@ -119,6 +120,8 @@
                 <search string="Work Order Search">
                     <field name="name"/>
                     <field name="user_id"/>
+                    <field name="company_id"/>
+                  
                     <field name="start_time"/>
                     <field name="end_time"/>
                     <field name="sale_cash_total"/>

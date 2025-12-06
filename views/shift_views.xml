@@ -111,6 +111,32 @@
                 </tree>
             </field>
         </record>
+        <record id="view_oil_shift_search" model="ir.ui.view">
+            <field name="name">oil.work.order.shift.search</field>
+             <field name="model">oil.shift</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <search string="Work Order Search">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="sale_cash_total"/>
+                    <field name="expense_total"/>
+                    <field name="difference"/>
+                    <field name="state"/>
+
+                    
+                    <filter string="Completed Orders" name="completed_orders"
+                        domain="[('state','=', 'closed')]" />
+                  
+                    <filter string="Un Completed Orders" name="un_completed_orders"
+                          domain="[('state','=', 'open')]" />
+
+                 
+                </search>
+            </field>
+        </record>
 
         
 
@@ -119,6 +145,7 @@
             <field name="res_model">oil.shift</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_oil_shift_tree" />
+             <field name="context">{'search_default_un_completed_orders': 1,}</field>
         </record>
 
 

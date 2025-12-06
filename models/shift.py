@@ -44,10 +44,7 @@ class OilShift(models.Model):
             ) % (open_shifts[0].name))
 
  
-        if vals.get('name', 'New') == 'New':
-            seq = self.env['ir.sequence'].with_company(self.env.company.id).next_by_code('oil.shift')
-            vals['name'] = seq or 'New'
-
+      
   
         user = vals.get('user_id') or self.env.user.id
 
@@ -79,6 +76,11 @@ class OilShift(models.Model):
                 raise UserError(_('Warning: there are Unpaid Invoices. (Total of unpaid invoices: %s)' % rec.sales_difference))
 
             rec.state = 'closed'
+            
+            if vals.get('name', 'New') == 'New':
+                seq = self.env['ir.sequence'].with_company(self.env.company.id).next_by_code('oil.shift')
+                self.write({'name': seq or 'New' }) 
+
 
         return True
     def cancel_close_shift(self):

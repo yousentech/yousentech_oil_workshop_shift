@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-07 08:38+0000\n"
-"PO-Revision-Date: 2025-12-07 12:01+0300\n"
+"PO-Revision-Date: 2025-12-07 12:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ar\n"
@@ -233,7 +233,7 @@ msgstr "اجمالي مبيعات الطلبات"
 #: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__shift_id
 #: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_work_order__shift_id
 msgid "Shift"
-msgstr ""
+msgstr "مرجع الشفت"
 
 #. module: yousentech_oil_workshop_shift
 #: model:ir.ui.menu,name:yousentech_oil_workshop_shift.menu_oil_shift_operations
@@ -257,7 +257,7 @@ msgstr "يجب فتح الشفت اولا"
 #: model:ir.ui.menu,name:yousentech_oil_workshop_shift.menu_oil_shifts
 #: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_tree
 msgid "Shifts"
-msgstr ""
+msgstr "نظام الشفت"
 
 #. module: yousentech_oil_workshop_shift
 #: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__start_time

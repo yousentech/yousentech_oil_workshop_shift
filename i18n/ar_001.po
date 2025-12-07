@@ -1,0 +1,530 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yousentech_oil_workshop_shift
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-07 08:38+0000\n"
+"PO-Revision-Date: 2025-12-07 12:01+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.7\n"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__company_id
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Cancel Close Shift"
+msgstr "الغاء اقفال الشفت"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__sale_card_total
+msgid "Card Sales Total"
+msgstr "اجمالي الدفع شبكة"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__cash_end
+msgid "Cash End"
+msgstr "مبلغ الاقفال النقدي"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__sale_cash_total
+msgid "Cash Sales Total"
+msgstr "اجمالي الدفع نقدي"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__cash_start
+msgid "Cash Start"
+msgstr "رصيد افتتاحي"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Close Shift"
+msgstr "اقفال الشفت"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields.selection,name:yousentech_oil_workshop_shift.selection__oil_shift__state__closed
+msgid "Closed"
+msgstr "منتهي"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_account_journal__collection_journal_flag
+msgid "Collection journal"
+msgstr "حساب المحصل"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__collector_journal_id
+msgid "Collector"
+msgstr "المحصل"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_search
+msgid "Completed Orders"
+msgstr "الأوامر المكتملة"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__create_uid
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__create_date
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__name
+msgid "Description"
+msgstr "الوصف"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__display_name
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__display_name
+msgid "Display Name"
+msgstr "الاسم"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__user_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__end_time
+msgid "End Time"
+msgstr "تاريخ الانتهاء"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__expected_cash
+msgid "Expected Cash"
+msgstr "المبلغ النقدي المتوقع"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.actions.act_window,name:yousentech_oil_workshop_shift.action_oil_expense_tree
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__expense_ids
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Expenses"
+msgstr "المصروفات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__expense_total
+msgid "Expenses Total"
+msgstr "اجمالي المصروفات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__id
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__id
+msgid "ID"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model,name:yousentech_oil_workshop_shift.model_account_journal
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__write_uid
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__write_date
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__note
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__note
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Notes"
+msgstr "المحلاحظات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.ui.menu,name:yousentech_oil_workshop_shift.menu_oil_root
+msgid "Oil Workshop"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model,name:yousentech_oil_workshop_shift.model_oil_expense
+msgid "Oil Workshop Expense"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "Oil Workshop Mukalla"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model,name:yousentech_oil_workshop_shift.model_oil_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_wo_shift_journal
+msgid "Oil Workshop Shift"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields.selection,name:yousentech_oil_workshop_shift.selection__oil_shift__state__open
+msgid "Open"
+msgstr "فتح"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__order_difference
+msgid "Orders Difference"
+msgstr "فرق عدد الطلبات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__orders_invoiced_num
+msgid "Orders Invoiced Num"
+msgstr "عدد الطلبات المفوترة"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__orders_num
+msgid "Orders Num"
+msgstr "اجمالي عدد الطلبات"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Refresh Data"
+msgstr "تحديث البيانات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__difference
+msgid "Remaining Cash"
+msgstr "المبلغ المتبقي"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__sales_difference
+msgid "Sales Not Paid"
+msgstr "المبيعات الغير مدفوعة"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__sale_total
+msgid "Sales Total"
+msgstr "اجمالي مبيعات الطلبات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_expense__shift_id
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_work_order__shift_id
+msgid "Shift"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.ui.menu,name:yousentech_oil_workshop_shift.menu_oil_shift_operations
+msgid "Shift Operations"
+msgstr "العمليات"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__name
+msgid "Shift Reference"
+msgstr "المرجع"
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid "Shift is not open."
+msgstr "يجب فتح الشفت اولا"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.actions.act_window,name:yousentech_oil_workshop_shift.action_oil_shift_tree
+#: model:ir.ui.menu,name:yousentech_oil_workshop_shift.menu_oil_shifts
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_tree
+msgid "Shifts"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__start_time
+msgid "Start Time"
+msgstr "تاريخ وقت البدء"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Total"
+msgstr "الاجمالي"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_search
+msgid "Un Completed Orders"
+msgstr "الشفت الغير مكتمل"
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid ""
+"Warning: No. of order more than order invoiced please confirm it or delete "
+"it. (diff order: %s)"
+msgstr ""
+"تنبيه: عدد الطلبات اكثر من عدد الطلبات المفوترة.. اما ان يتم فوترتها او "
+"حذفها. (الفرق في الطلبات: %s)"
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid "Warning: there are Unpaid Invoices. (Total of unpaid invoices: %s)"
+msgstr "تنبيه: يوجد مبيعات غير مدفوعة.(اجمالي الفواتير الغير مفوترة: %s)"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_search
+msgid "Work Order Search"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model.fields,field_description:yousentech_oil_workshop_shift.field_oil_shift__sale_ids
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "Work Orders"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid ""
+"You already have an open shift (%s). Close it before opening a new one."
+msgstr ""
+"تنبيه: يوجد شفت مفتوح مسبقا رقم (%s) قم باقفال الشفت وفتح شفت جديد ان اردت"
+
+#. module: yousentech_oil_workshop_shift
+#: model:res.groups,name:yousentech_oil_workshop_shift.group_allow_un_cancel_oil_wo_shift
+msgid "allow Un cancel Workshop Shift"
+msgstr "السماح بإلغاء اقفال الشفت"
+
+#. module: yousentech_oil_workshop_shift
+#: model:ir.model,name:yousentech_oil_workshop_shift.model_oil_work_order
+msgid "oil.work.order"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid "you can not deleted because the Shift data is related with work order."
+msgstr "تنبيه: لا يمكن حذف بيانات الشفت بسبب يوجد طلبات مرتبطة بالشفت"
+
+#. module: yousentech_oil_workshop_shift
+#. odoo-python
+#: code:addons/yousentech_oil_workshop_shift/models/shift.py:0
+#, python-format
+msgid "you can not deleted because the Shift state is closed."
+msgstr "تنبيه: لا يمكن حذف بيانات الشفت بسبب حالة الشفت (منتهي)"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "إجمالي المبيعات"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "إجمالي المصروفات :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "إلى:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "اسم الموظف:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "اعتماد الإدارة: _____________________"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "التاريخ:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "الفرع:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "الفرق"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "الفرق          :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "المبلغ المتوقع"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "المبلغ المتوقع :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "المبلغ المسلم"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "المبلغ المسلم  :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "المصروفات"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "الملخص المالي"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "الموظف:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "تقرير تسكير الشفت"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "تم الإغلاق بنجاح"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "توقيع الموظف: _____________________"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "توقيع مستلم النقدية: _____________________"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "رصيد البداية"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "رصيد البداية :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "رقم الشفت:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "ريال"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "مبيعات بطاقة"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "مبيعات بطاقة :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "مبيعات نقدية"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "مبيعات نقدية :"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "ملاحظات"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "ملاحظات:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_thermal
+msgid "من:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "وقت الإغلاق:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.report_oil_shift_formal
+msgid "وقت الفتح:"
+msgstr ""
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "📌 Cash Collection Info"
+msgstr "📌 بيانات الدفع النقدي"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "📌 Sales History"
+msgstr "📌 المبيعات"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "📦 Payments"
+msgstr "📦 الدفوعات"
+
+#. module: yousentech_oil_workshop_shift
+#: model_terms:ir.ui.view,arch_db:yousentech_oil_workshop_shift.view_oil_shift_form
+msgid "📦 Shift Info"
+msgstr "بيانات الشفت"

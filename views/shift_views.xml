@@ -25,8 +25,8 @@
                                     <group>
                                         <group string="📦 Shift Info" col="2">
                                           <field name="name"/>
-                                          <field name="user_id" readonly="1" force_save="1"/>
-                                          <field name="company_id" readonly="1" force_save="1"/>
+                                          <field name="user_id" readonly="1" force_save="1"  options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,'no_create': True}"/>
+                                          <field name="company_id" readonly="1" force_save="1"  options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,'no_create': True}"/>
                                           <field name="start_time" readonly="1" force_save="1"/>
                                           <field name="end_time" readonly="1" force_save="1"/>
                                              
@@ -37,7 +37,7 @@
 
                                               <field name="sale_cash_total"   style="font-weight:bold; color:#007bff; background-color:#e6f0ff;  "/>
                                               <field name="expense_total"/>
-                                              <field name="collector_journal_id" readonly="state == 'closed'" />
+                                              <field name="collector_journal_id" readonly="state == 'closed'"  options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,'no_create': True}"/>
                                              
                                         </group>
                                 
@@ -77,7 +77,7 @@
                               <tree editable="bottom" decoration-danger="remaining_payment != 0" >
  
                                 <field name="order_seq"/>
-                                <field name="partner_id"/>
+                                <field name="partner_id"  options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,'no_create': True}"/>
                                 <field name="amount_total"  sum="Total"/>
                                 <field name="payment_total"  sum="Total"/>
                                 <field name="remaining_payment" sum="Total"/>

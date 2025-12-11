@@ -6,6 +6,15 @@ class OilWorkOrder(models.Model):
 
     shift_id = fields.Many2one('oil.shift', string='Shift',)
 
+    def _validate_entries(self):
+
+        res = super()._validate_entries()
+        if self.order_date < self.shift_id.start_time:
+            raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
+
+        return res
+
+
     @api.model
     def create(self, vals):
         # Link to current open shift for the user if exists

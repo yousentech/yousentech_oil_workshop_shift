@@ -21,6 +21,10 @@
     <field name="category_id" ref="yousentech_oil_workshop.oil_workshop_category"/>
   </record>
 
+  <record id="group_allow_modify_shift_in_wo" model="res.groups">
+    <field name="name">allow Modify Shift Numer In work order</field>
+    <field name="category_id" ref="yousentech_oil_workshop.oil_workshop_category"/>
+  </record>
   
     <record id="oil_work_order_shifts_rules" model="ir.rule">
         <field name="name">oil work order shifts</field>

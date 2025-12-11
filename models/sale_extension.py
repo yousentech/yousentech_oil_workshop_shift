@@ -9,7 +9,7 @@ class OilWorkOrder(models.Model):
     def _validate_entries(self):
 
         res = super()._validate_entries()
-        if self.order_date < self.shift_id.start_time:
+        if self.order_date.date() < self.shift_id.start_time.date():
             raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
 
         return res

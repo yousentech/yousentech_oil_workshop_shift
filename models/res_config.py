@@ -13,10 +13,12 @@ class res_config_settings(models.TransientModel):
     def get_values(self):
         res = super(res_config_settings, self).get_values()
         params = self.env['ir.config_parameter'].sudo()
-        res.update(
-            l_shift_limit = params.get_param('shift_limit', default=False)
+        l_shift_limit = params.get_param('shift_limit',
+                                             default=False)
            
-        )
+       
+        res.update(shift_limit=l_shift_limit)
+       
         return res
 
     def set_values(self):

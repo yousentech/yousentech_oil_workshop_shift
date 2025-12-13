@@ -42,3 +42,24 @@ class OilWorkOrder(models.Model):
                 raise UserError('You must open a shift before recording a sale.')
 
         return super().create(vals)
+    
+
+    shift_limit_type = fields.Boolean(
+        default=lambda self: self._default_shift_limit_type(),
+        compute="_check_shift_limit_type",
+    )
+    def _default_shift_limit_type(self):
+        params = self.env["ir.config_parameter"].sudo()
+        shift_limit_flag = params.get_param(
+            "yousentech_oil_workshop_shift.shift_limit", default=False
+        )
+        return shift_limit_flag
+
+    def _check_shift_limit_type(self):
+        params = self.env["ir.config_parameter"].sudo()
+        shift_limit_flag = params.get_param(
+            "yousentech_oil_workshop_shift.shift_limit", default=False
+        )
+
+        for rec in self:
+            rec.shift_limit_type = True if shift_limit_flag else False

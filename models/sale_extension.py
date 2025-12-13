@@ -44,7 +44,7 @@ class OilWorkOrder(models.Model):
         return super().create(vals)
     
 
-    shift_limit_type = fields.Boolean(
+    shift_limit_type = fields.Char(
         default=lambda self: self._default_shift_limit_type(),
         compute="_check_shift_limit_type",
     )
@@ -62,4 +62,4 @@ class OilWorkOrder(models.Model):
         )
 
         for rec in self:
-            rec.shift_limit_type = True if shift_limit_flag else False
+            rec.shift_limit_type = shift_limit_flag if shift_limit_flag else False

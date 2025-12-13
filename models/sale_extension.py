@@ -49,17 +49,24 @@ class OilWorkOrder(models.Model):
         compute="_check_shift_limit_type",
     )
     def _default_shift_limit_type(self):
-        params = self.env["ir.config_parameter"].sudo()
-        shift_limit_flag = params.get_param("yousentech_oil_workshop_shift.shift_limit", default=False )
+
+        params = self.env['ir.config_parameter'].sudo()
+        shift_limit_flag = params.get_param('shift_limit',
+                                             default=False)
         print("shift_limit_flag+++++++++++++++++++++++",shift_limit_flag)
         return shift_limit_flag
 
-    def _check_shift_limit_type(self):
-        params = self.env["ir.config_parameter"].sudo()
-        shift_limit_flag = params.get_param(
-            "yousentech_oil_workshop_shift.shift_limit", default=False
-        )
 
+ 
+
+    def _check_shift_limit_type(self):
+
+        params = self.env['ir.config_parameter'].sudo()
+        shift_limit_flag = params.get_param('shift_limit',
+                                            default=False)
         for rec in self:
-            rec.shift_limit_type = shift_limit_flag if shift_limit_flag else False
+            rec.shift_limit_type = shift_limit_flag
         print("shift_limit_flag+++++++++++++++++++++++",shift_limit_flag)
+
+
+ 

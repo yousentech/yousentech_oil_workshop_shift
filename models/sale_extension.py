@@ -66,7 +66,7 @@ class OilWorkOrder(models.Model):
             open_shift = self.env['oil.shift'].search([('company_id','=', vals.get('company_id')),('state','=','open')], limit=1)
             if open_shift:
                 if self.shift_limit_type == 'daily':
-                    if self.order_date.date() == open_shift.start_time.date():
+                    if self.order_date.date() == open_shift.start_time.date() and fields.Date.today() == open_shift.start_time.date():
                         vals['shift_id'] = open_shift.id
                     else:
                         raise UserError('You must Close opened shift and open new shift before recording a sale.')

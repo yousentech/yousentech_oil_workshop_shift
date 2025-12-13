@@ -11,6 +11,7 @@ class OilShift(models.Model):
     company_id = fields.Many2one('res.company', string='Branch', default=lambda self: self.env.company)
     collector_journal_id = fields.Many2one('account.journal', string='Collector',domain=[('collection_journal_flag','=',True)])
     start_time = fields.Datetime(string='Start Time', default=fields.Datetime.now)
+    start_time_date = fields.Date(string='Start Time', default=fields.Date.now)
     end_time = fields.Datetime(string='End Time')
     cash_start = fields.Float(string='Cash Start', digits='Product Price')
     cash_end = fields.Float(string='Cash End', digits='Product Price')
@@ -50,6 +51,11 @@ class OilShift(models.Model):
 
         return super().create(vals)
 
+
+    @api.depends('start_time')
+    def set_start_time_date(self)
+        for rec in self:
+            rec.start_time_date = rec.start_time
 
     # def action_open_shift(self):
     #     for rec in self:

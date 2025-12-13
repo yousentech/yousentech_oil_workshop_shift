@@ -37,7 +37,11 @@ class OilWorkOrder(models.Model):
                 raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
            
             if self.shift_limit_type == 'daily':
-                if self.order_date.date() != open_shift.start_time.date():
+
+                if  fields.Date.today() == self.shift_id.start_time.date():
+                        raise UserError('You must Close opened shift and open new shift before recording a sale.')
+
+                if self.order_date.date() != self.shift_id.start_time.date():
                     raise UserError('Warning .. The work order date does not match the open shift date.')
                 
                  

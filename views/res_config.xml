@@ -14,7 +14,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Shift Limit</h5>
                                 <div class="d-flex align-items-center">
-                                    <field name="shift_limit" class="form-control w-50 me-3" />
+                                    <field name="shift_limit"  />
                                     <small class="text-muted">
                                         <i class="fa fa-font me-1" /> Determine Shift limit </small>
                                 </div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="res_config_oil_workshop_shift" model="ir.ui.view">
+        <field name="name">res_config_oil_workshop_shift</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="yousentech_invoicing.res_config_settings_invoicing_form" />
+        <field name="arch" type="xml">
+              <xpath expr="//app[@name='oil_workshop']" position="inside">
+              
+                    <block title="Shift System" name="oil_workshop_container">
+                         
+                        <div class="col-md-6">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Shift Limit</h5>
+                                <div class="d-flex align-items-center">
+                                    <field name="shift_limit" class="form-control w-50 me-3" />
+                                    <small class="text-muted">
+                                        <i class="fa fa-font me-1" /> Determine Shift limit </small>
+                                </div>
+                            </div>
+                        </div>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

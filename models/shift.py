@@ -1,5 +1,6 @@
 from odoo import models, fields, api, _
 from odoo.exceptions import UserError
+from datetime import datetime, time
 
 class OilShift(models.Model):
     _name = 'oil.shift'
@@ -56,12 +57,11 @@ class OilShift(models.Model):
         for rec in self:
             if rec.start_time_date:
                 old_time = rec.start_time.time() if rec.start_time else fields.Datetime.now().time()
-                rec.start_time = datetime.combine(
-                    rec.start_time_date,
-                    old_time  )
+                print("old_time",old_time)
+                rec.start_time = datetime.combine(  rec.start_time_date, old_time  )
 
 
-                    
+
     # def action_open_shift(self):
     #     for rec in self:
     #         existing = self.search([('user_id','=',rec.user_id.id),('state','=','open'),('id','!=',rec.id)])

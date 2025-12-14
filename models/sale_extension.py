@@ -76,7 +76,7 @@ class OilWorkOrder(models.Model):
                 #     else:
                 #         raise UserError('You must Close opened shift and open new shift before recording a sale.')
                 # else:
-                    # vals['shift_id'] = open_shift.id
+                vals['shift_id'] = open_shift.id
         
                  
             if not open_shift:

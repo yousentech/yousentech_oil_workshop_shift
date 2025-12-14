@@ -19,11 +19,15 @@
     <field name="model">oil.work.order</field>
     <field name="inherit_id" ref="yousentech_oil_workshop.view_work_order_form"/>
     <field name="arch" type="xml">
-      <field name="order_seq" position="after">
-         <field name="allow_change_shfit_num" invisible="1" />
-        <field name="shift_id" readonly="not allow_change_shfit_num" force_save="1"/>
-          <field name="shift_limit_type" invisible="1"/>
-      </field>
+        <field name="order_seq" position="after">
+          <field name="allow_change_shfit_num" invisible="1" />
+          <field name="shift_id" readonly="not allow_change_shfit_num" force_save="1"/>
+          
+        </field>
+         <field name="service_type_ids" position="after">
+            <field name="shift_limit_type" readonly="1" force_save="1" />
+          
+        </field>
     </field>
   </record>
 </odoo>

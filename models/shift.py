@@ -55,8 +55,7 @@ class OilShift(models.Model):
     @api.onchange('start_time_date')
     def set_start_time_date(self):
         for rec in self:
-            rec.start_time = rec.start_time_date
-
+            rec.start_time = rec.start_time_date.now()
     # def action_open_shift(self):
     #     for rec in self:
     #         existing = self.search([('user_id','=',rec.user_id.id),('state','=','open'),('id','!=',rec.id)])

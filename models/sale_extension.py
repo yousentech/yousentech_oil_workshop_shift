@@ -72,7 +72,7 @@ class OilWorkOrder(models.Model):
                 print('self.created_order_date',vals.get('created_order_date'))
                 print('open_shift.start_time_date',open_shift.start_time_date)
                 print(' fields.Date.today()', fields.Date.today())
-                print('vals.get('shift_limit_type')', vals.get('shift_limit_type'))
+                print('v', vals.get('shift_limit_type'))
                 
                 if vals.get('shift_limit_type') == 'daily':
                     if vals.get('created_order_date') == open_shift.start_time_date and fields.Date.today() == open_shift.start_time_date:

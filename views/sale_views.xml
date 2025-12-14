@@ -8,7 +8,7 @@
     <field name="arch" type="xml">
       <field name="order_seq" position="after">
         <field name="shift_id" readonly="1"/>
-         <field name="shift_limit_type" invisible="1"/>
+         <field name="shift_limit_type" readonly="1" force_save="1" />
       </field>
     </field>
   </record>

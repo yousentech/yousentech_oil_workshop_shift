@@ -52,10 +52,10 @@ class OilShift(models.Model):
         return super().create(vals)
 
 
-    # @api.depends('start_time')
-    # def set_start_time_date(self):
-    #     for rec in self:
-    #         rec.start_time_date = rec.start_time
+    @api.onchange('start_time_date')
+    def set_start_time_date(self):
+        for rec in self:
+            rec.start_time = rec.start_time_date
 
     # def action_open_shift(self):
     #     for rec in self:

@@ -32,18 +32,17 @@ class OilWorkOrder(models.Model):
     def _validate_entries(self):
 
         res = super()._validate_entries()
-        # if self.shift_id.start_time:
-            # if self.order_date.date() < self.shift_id.start_time.date():
-            #     raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
+        if self.shift_id.start_time_date:
+            if self.created_order_date.date() < self.shift_id.start_time_date:
+                raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
            
-            # if self.shift_limit_type == 'daily':
-                # print("fields.Date.today()",fields.Date.today())
-                # print("self.shift_id.start_time.date()",self.shift_id.start_time.date())
-                # if  fields.Date.today() != self.shift_id.start_time.date():
-                #     raise UserError('You must Close opened shift and open new shift before recording a sale.')
+            if self.shift_limit_type == 'daily':
+               
+                if  fields.Date.today() != self.shift_id.start_time_date:
+                    raise UserError('You must Close opened shift and open new shift before recording a sale.')
 
-                # if self.order_date.date() != self.shift_id.start_time.date():
-                #     raise UserError('Warning .. The work order date does not match the open shift date.')
+                if self.created_order_date != self.shift_id.start_time_date:
+                    raise UserError('Warning .. The work order date does not match the open shift date.')
                 
                  
 
@@ -70,13 +69,13 @@ class OilWorkOrder(models.Model):
             user_id = vals.get('user_id') or self.env.uid
             open_shift = self.env['oil.shift'].search([('company_id','=', vals.get('company_id')),('state','=','open')], limit=1)
             if open_shift:
-                # if self.shift_limit_type == 'daily':
-                #     if self.order_date.date() == open_shift.start_time.date() and fields.Date.today() == open_shift.start_time.date():
-                #         vals['shift_id'] = open_shift.id
-                #     else:
-                #         raise UserError('You must Close opened shift and open new shift before recording a sale.')
-                # else:
-                vals['shift_id'] = open_shift.id
+                if self.shift_limit_type == 'daily':
+                    if self.order_date.date() == open_shift.start_time_date and fields.Date.today() == open_shift.start_time_date:
+                        vals['shift_id'] = open_shift.id
+                    else:
+                        raise UserError('You must Close opened shift and open new shift before recording a sale.')
+                else:
+                    vals['shift_id'] = open_shift.id
         
                  
             if not open_shift:

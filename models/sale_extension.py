@@ -69,13 +69,13 @@ class OilWorkOrder(models.Model):
             user_id = vals.get('user_id') or self.env.uid
             open_shift = self.env['oil.shift'].search([('company_id','=', vals.get('company_id')),('state','=','open')], limit=1)
             if open_shift:
-                print('self.created_order_date',vals.get('created_order_date'))
-                print('open_shift.start_time_date',open_shift.start_time_date)
-                print(' fields.Date.today()', fields.Date.today())
+                print(type(vals.get('created_order_date')))
+                print(type(open_shift.start_time_date))
+                print(type(fields.Date.today()))
                 print('v', vals.get('shift_limit_type'))
                 
                 if vals.get('shift_limit_type') == 'daily':
-                    if vals.get('created_order_date') == open_shift.start_time_date and fields.Date.today() == open_shift.start_time_date:
+                    if (fields.Date.from_string(vals.get('created_order_date'))  == open_shift.start_time_date  == fields.Date.today()):
                         vals['shift_id'] = open_shift.id
                     else:
                         raise UserError('You must Close opened shift and open new shift before recording a sale.- تنبيه: يوجد شفت مفتوحا مسبقا بتاريخ مختلف يجب اقفال الشفت وفتح شفت جديد بتاريخ اليوم')

@@ -78,7 +78,7 @@ class OilWorkOrder(models.Model):
                     if vals.get('created_order_date') == open_shift.start_time_date and fields.Date.today() == open_shift.start_time_date:
                         vals['shift_id'] = open_shift.id
                     else:
-                        raise UserError('You must Close opened shift and open new shift before recording a sale.')
+                        raise UserError('You must Close opened shift and open new shift before recording a sale.- تنبيه: يوجد شفت مفتوحا مسبقا بتاريخ مختلف يجب اقفال الشفت وفتح شفت جديد بتاريخ اليوم')
                 else:
                     vals['shift_id'] = open_shift.id
         

@@ -118,7 +118,7 @@
                   <field name="sale_total"/>
                   <field name="sale_card_total"/>
                   <field name="sale_cash_total"/>
-                  <field name="sales_difference"  decoration-danger="sales_difference != 0"  style="font-weight:bold;"/>
+                  <field name="sales_difference"   />
                   <field name="state"/>
                 </tree>
             </field>

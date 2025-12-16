@@ -115,9 +115,10 @@
                   <!-- <field name="user_id"/> -->
                   <field name="start_time"/>
                   <field name="end_time"/>
+                  <field name="sale_total"/>
+                  <field name="sale_card_total"/>
                   <field name="sale_cash_total"/>
-                  <field name="expense_total"/>
-                  <field name="difference"/>
+                  <field name="sales_difference"  decoration-danger="difference != 0"  style="font-weight:bold;"/>
                   <field name="state"/>
                 </tree>
             </field>
@@ -134,9 +135,9 @@
                   
                     <field name="start_time"/>
                     <field name="end_time"/>
-                    <field name="sale_cash_total"/>
-                    <field name="expense_total"/>
-                    <field name="difference"/>
+            
+               
+         
                     <field name="state"/>
 
                     

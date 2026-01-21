@@ -38,8 +38,8 @@ class OilWorkOrder(models.Model):
            
             if self.shift_limit_type == 'daily':
                
-                # if  fields.Date.today() != self.shift_id.start_time_date:
-                #     raise UserError('You must Close opened shift and open new shift before recording a sale.')
+                if  fields.Date.today() != self.shift_id.start_time_date:
+                    raise UserError('You must Close opened shift and open new shift before recording a sale.')
 
                 if self.created_order_date != self.shift_id.start_time_date:
                     raise UserError('Warning .. The work order date does not match the open shift date.')

@@ -161,7 +161,7 @@
                                 <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
                                 <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
                                 <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
-                                <td colspan="6"></td>
+                                <td colspan="7"></td>
                             </tr>
                         </table>
                     </t>
@@ -245,7 +245,7 @@
                                     <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
-                                    <td colspan="4"></td>
+                                    <td colspan="5"></td>
                                 </tr>
                             </table>
                             <p style="page-break-after:always;"></p>
@@ -333,7 +333,7 @@
                                     <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
-                                    <td colspan="4"></td>
+                                    <td colspan="5"></td>
                                 </tr>
                             </table>
                             <p style="page-break-after:always;"></p>
@@ -422,7 +422,7 @@
                                     <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
                                     <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
-                                    <td colspan="4"></td>
+                                    <td colspan="5"></td>
                                 </tr>
                             </table>
                             <p style="page-break-after:always;"></p>

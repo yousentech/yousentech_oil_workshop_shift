@@ -1,0 +1,16 @@
+<odoo>    
+
+   <record model="ir.ui.view" id="oil_wo_daily_shift_report">
+        <field name="name">oil_wo_daily_shift_report</field>
+        <field name="model">oil.wo.daily.report</field>
+        <field name="inherit_id" ref="yousentech_oil_workshop.oil_wo_daily_report"/>
+        <field name="arch" type="xml">
+           <field name="cancel_state" position="after">
+            
+                  <field name="shift_id"/>
+              
+          </field>
+      </field>
+    </record>
+ 
+</odoo>

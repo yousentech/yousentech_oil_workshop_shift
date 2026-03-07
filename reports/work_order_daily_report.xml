@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+ 
+    <!-- القالب -->
+    <template id="oil_daily_report_shift_view" inherit_id="yousentech_oil_workshop.oil_daily_report_view">
+        <xpath expr="//t[@t-call='web.html_container']" position="replace">
+          <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <style>
+                    /* تنسيق عام */
+                    body {
+                        font-family: "Arial", sans-serif;
+                        color: #000000ff;
+                    }
+                    h2, h3 {
+                        text-align: center;
+                        color: #222;
+                    }
+                    table {
+                        border-collapse: collapse;
+                        width: 100%;
+                        font-size: 10px;
+                    }
+                    th, td {
+                        border: 1px solid #000000ff;
+                        padding: 5px;
+                        vertical-align: middle;
+                    }
+                    thead th {
+                        background-color: #f0f0f0;
+                        font-weight: bold;
+                        text-align: center;
+                    }
+                    tr:nth-child(even) {
+                        background-color: #fafafa;
+                    }
+                    tr:hover {
+                        background-color: #f5f5f5;
+                    }
+                    .summary-row {
+                        background-color: #080808ff;
+                        color: black;
+                        font-weight: bold;
+                    }
+                    .section-header {
+                        background-color: #eee;
+                        color: #222;
+                        font-weight: bold;
+                        padding: 5px;
+                        margin-top: 15px;
+                        border-radius: 4px;
+                    }
+                    .info-center {
+                        text-align: center;
+                        font-size: 11px;
+                        margin: 10px 0;
+                    }
+                </style>
+
+                <div class="page">
+
+                    <!-- العنوان الرئيسي -->
+                    <t t-if="group_by_type == 'by_date'">
+                        <h2>Daily Sales Report - By Date</h2>
+                    </t>
+                    <t t-if="group_by_type == 'by_technical'">
+                        <h2>Daily Sales Report - By Technician</h2>
+                    </t>
+                    <t t-if="group_by_type == 'by_sale_man'">
+                        <h2>Daily Sales Report - By Salesman</h2>
+                    </t>
+                     <t t-if="group_by_type == 'by_branch'">
+                        <h2>Daily Sales Report - By Branch</h2>
+                    </t>
+
+                    <div class="info-center">
+                        <strong>From:</strong> <t t-esc="date_start"/>
+                        &#160;&#160;
+                        <strong>To:</strong> <t t-esc="date_end"/>
+                    </div>
+                    <t t-if="shifts">
+                        <div class="info-left">
+                            <strong>shift Number:</strong> <t t-esc="shifts.name"/>
+                            
+                        </div>
+                    </t>
+                    <t t-set="l_amount_total_all" t-value="0"/>
+
+                    <!-- القسم: حسب التاريخ -->
+                    <t t-if="group_by_type == 'by_date'">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Work Order</th>
+                                    <th>Invoice</th>
+                                    <th>Total (Incl. Tax)</th>
+                                    <th>Pay Cash</th>
+                                    <th>Pay Bank</th>
+                                    <th>Remaining</th>
+                                    <th>Branch</th>
+                                    <th>Car Type</th>
+                                    <th>Car Plate</th>
+                                    <th>Car Size</th>
+                                    <th>Technician</th>
+                                    <th>Customer</th>
+                                    <th>Shift</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="l_cnt" t-value="0"/>
+                                <t t-set="l_amount_total" t-value="0"/>
+                                <t t-set="l_cash_all" t-value="0"/>
+                                <t t-set="l_bank_all" t-value="0"/>
+
+                                <t t-foreach="docs_compelete" t-as="move">
+                                    <t t-set="l_cnt" t-value="l_cnt + 1"/>
+                                    <t t-set="invoice_amount" t-value="0"/>
+                                    <t t-if="move.move_type == 'out_invoice'">
+                                        <t t-set="invoice_amount" t-value="move.amount_total"/>
+                                        <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                        <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                    </t>
+                                    <t t-if="move.move_type == 'out_refund'">
+                                        <t t-set="invoice_amount" t-value="move.amount_total * -1"/>
+                                        <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                        <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                    </t>
+
+                                    <t t-set="l_cash" t-value="move.get_payment_amt_of_invoice('cash')"/>
+                                    <t t-set="l_bank" t-value="move.get_payment_amt_of_invoice('bank')"/>
+                                    <t t-set="l_cash_all" t-value="l_cash + l_cash_all"/>
+                                    <t t-set="l_bank_all" t-value="l_bank + l_bank_all"/>
+
+                                    <tr>
+                                        <td><t t-esc="l_cnt"/></td>
+                                        <td><t t-esc="move.date"/></td>
+                                        <td><t t-esc="move.work_order_id.order_seq"/></td>
+                                        <td><t t-esc="move.name"/></td>
+                                        <td style="text-align:right;"><t t-esc="round(invoice_amount, 2)"/></td>
+                                        <td style="text-align:right;"><t t-esc="l_cash"/></td>
+                                        <td style="text-align:right;"><t t-esc="l_bank"/></td>
+                                        <td style="text-align:right;"><t t-esc="round(invoice_amount - (l_bank + l_cash), 2)"/></td>
+                                        <td><t t-esc="move.company_id.name"/></td>
+                                        <td><t t-esc="move.work_order_id.car_type_id.name"/></td>
+                                        <td><t t-esc="move.work_order_id.car_number"/></td>
+                                        <td><t t-esc="move.work_order_id.car_size_id.name"/></td>
+                                        <td><t t-esc="move.work_order_id.employee_id.name"/></td>
+                                        <td><t t-esc="move.partner_id.name"/></td>
+                                        <td><t t-esc="move.work_order_id.shift_id.name"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+
+                            <tr class="summary-row">
+                                <td colspan="4">Total</td>
+                                <td><t t-esc="'{:,.2f}'.format(l_amount_total)"/></td>
+                                <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
+                                <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
+                                <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
+                                <td colspan="6"></td>
+                            </tr>
+                        </table>
+                    </t>
+                  
+
+                    <t t-if="group_by_type == 'by_sale_man'">
+                        <t t-foreach="sale_mans" t-as="rec">
+                            <br/>
+
+                            <div class="section-header">
+                                Sale Man: <span t-esc="rec.name"/>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Work Order</th>
+                                        <th>Date</th>
+                                        <th>Customer</th>
+                                        <th>Invoice</th>
+                                        <th>Total Include Tax</th>
+                                        <th>Pay Cash</th>
+                                        <th>Pay Bank</th>
+                                        <th>Remaining</th>
+                                        <th>Branch</th>
+                                        <th>Car Type</th>
+                                        <th>Car Plate</th>
+                                        <th>Car Size</th>
+                                        <th>Shift</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="l_cnt" t-value="0"/>
+                                    <t t-set="l_amount_total" t-value="0"/>
+                                    <t t-set="l_cash_all" t-value="0"/>
+                                    <t t-set="l_bank_all" t-value="0"/>
+
+                                    <t t-foreach="docs_compelete.filtered(lambda x: x.work_order_id.salesman_id.id == rec.id)" t-as="move">
+                                        <t t-set="l_cnt" t-value="l_cnt + 1"/>
+                                        <t t-set="invoice_amount" t-value="0"/>
+                                        <t t-if="move.move_type == 'out_invoice'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-if="move.move_type == 'out_refund'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total * -1"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-set="l_cash" t-value="move.get_payment_amt_of_invoice('cash')"/>
+                                        <t t-set="l_bank" t-value="move.get_payment_amt_of_invoice('bank')"/>
+                                        <t t-set="l_cash_all" t-value="l_cash + l_cash_all"/>
+                                        <t t-set="l_bank_all" t-value="l_bank + l_bank_all"/>
+
+                                        <tr>
+                                            <td><t t-esc="l_cnt"/></td>
+                                            <td><t t-esc="move.work_order_id.order_seq"/></td>
+                                            <td><t t-esc="move.date"/></td>
+                                            <td><t t-esc="move.partner_id.name"/></td>
+                                            <td><t t-esc="move.name"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount,2)"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_cash"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_bank"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount - (l_cash + l_bank),2)"/></td>
+                                            <td><t t-esc="move.company_id.name"/></td>
+                                            <td><t t-esc="move.work_order_id.car_type_id.name"/></td>
+                                            <td><t t-esc="move.work_order_id.car_number"/></td>
+                                            <td><t t-esc="move.work_order_id.car_size_id.name"/></td>
+                                             <td><t t-esc="move.work_order_id.shift_id.name"/></td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                                <tr class="summary-row">
+                                    <td colspan="5">Total</td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
+                                    <td colspan="4"></td>
+                                </tr>
+                            </table>
+                            <p style="page-break-after:always;"></p>
+                        </t>
+                    </t>
+
+                    <t t-if="group_by_type == 'by_technical'">
+                        <t t-foreach="technicians" t-as="rec">
+                            <br/>
+
+                            <div class="section-header">
+                                Technician Name: <span t-esc="rec.name"/>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Work Order</th>
+                                        <th>Date</th>
+                                        <th>Customer</th>
+                                        <th>Invoice</th>
+                                        <th>Total Include Tax</th>
+                                        <th>Pay Cash</th>
+                                        <th>Pay Bank</th>
+                                        <th>Remaining</th>
+                                        <th>Branch</th>
+                                        <th>Car Type</th>
+                                        <th>Car Plate</th>
+                                        <th>Car Size</th>
+                                        <th>Shift</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="l_cnt" t-value="0"/>
+                                    <t t-set="l_amount_total" t-value="0"/>
+                                    <t t-set="l_cash_all" t-value="0"/>
+                                    <t t-set="l_bank_all" t-value="0"/>
+
+                                    <t t-foreach="docs_compelete.filtered(lambda x: x.work_order_id.employee_id.id == rec.id)" t-as="move">
+                                        <t t-set="l_cnt" t-value="l_cnt + 1"/>
+                                        <t t-set="invoice_amount" t-value="0"/>
+                                        <t t-if="move.move_type == 'out_invoice'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-if="move.move_type == 'out_refund'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total * -1"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-set="l_cash" t-value="move.get_payment_amt_of_invoice('cash')"/>
+                                        <t t-set="l_bank" t-value="move.get_payment_amt_of_invoice('bank')"/>
+                                        <t t-set="l_cash_all" t-value="l_cash + l_cash_all"/>
+                                        <t t-set="l_bank_all" t-value="l_bank + l_bank_all"/>
+
+                                        <tr>
+                                            <td><t t-esc="l_cnt"/></td>
+                                            <td><t t-esc="move.work_order_id.order_seq"/></td>
+                                            <td><t t-esc="move.date"/></td>
+                                            <td><t t-esc="move.partner_id.name"/></td>
+                                            <td><t t-esc="move.name"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount,2)"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_cash"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_bank"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount - (l_cash + l_bank),2)"/></td>
+                                            <td><t t-esc="move.company_id.name"/></td>
+                                            <td><t t-esc="move.work_order_id.car_type_id.name"/></td>
+                                            <td><t t-esc="move.convert_english_to_arabic_letters(move.car_letters)"/>
+                                                <span t-esc="move.work_order_id.car_letters"/>
+                                                <span t-esc="move.work_order_id.car_number"/>
+                                            </td>
+                                            <td><t t-esc="move.work_order_id.car_size_id.name"/></td>
+                                             <td><t t-esc="move.work_order_id.shift_id.name"/></td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                                <tr class="summary-row">
+                                    <td colspan="5">Total</td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
+                                    <td colspan="4"></td>
+                                </tr>
+                            </table>
+                            <p style="page-break-after:always;"></p>
+                        </t>
+                    </t>
+
+                          
+                    <t t-if="group_by_type == 'by_branch'">
+                        <t t-foreach="companys" t-as="rec">
+                            <br/>
+
+                            <div class="section-header">
+                                Branch Name: <span t-esc="rec.name"/>
+                            </div>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Work Order</th>
+                                        <th>Date</th>
+                                        <th>Customer</th>
+                                        <th>Invoice</th>
+                                        <th>Total Include Tax</th>
+                                        <th>Pay Cash</th>
+                                        <th>Pay Bank</th>
+                                        <th>Remaining</th>
+                                        <th>Technician</th>
+                                        <th>Car Type</th>
+                                        <th>Car Plate</th>
+                                        <th>Car Size</th>
+                                        <th>Shift</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="l_cnt" t-value="0"/>
+                                    <t t-set="l_amount_total" t-value="0"/>
+                                    <t t-set="l_cash_all" t-value="0"/>
+                                    <t t-set="l_bank_all" t-value="0"/>
+
+                                    <t t-foreach="docs_compelete.filtered(lambda x: x.work_order_id.company_id.id == rec.id)" t-as="move">
+                                        <t t-set="l_cnt" t-value="l_cnt + 1"/>
+                                        <t t-set="invoice_amount" t-value="0"/>
+                                        <t t-if="move.move_type == 'out_invoice'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-if="move.move_type == 'out_refund'">
+                                            <t t-set="invoice_amount" t-value="move.amount_total * -1"/>
+                                            <t t-set="l_amount_total" t-value="invoice_amount + l_amount_total"/>
+                                            <t t-set="l_amount_total_all" t-value="invoice_amount + l_amount_total_all"/>
+                                        </t>
+                                        <t t-set="l_cash" t-value="move.get_payment_amt_of_invoice('cash')"/>
+                                        <t t-set="l_bank" t-value="move.get_payment_amt_of_invoice('bank')"/>
+                                        <t t-set="l_cash_all" t-value="l_cash + l_cash_all"/>
+                                        <t t-set="l_bank_all" t-value="l_bank + l_bank_all"/>
+
+                                        <tr>
+                                            <td><t t-esc="l_cnt"/></td>
+                                            <td><t t-esc="move.work_order_id.order_seq"/></td>
+                                            <td><t t-esc="move.date"/></td>
+                                            <td><t t-esc="move.partner_id.name"/></td>
+                                            <td><t t-esc="move.name"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount,2)"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_cash"/></td>
+                                            <td style="text-align:right;"><t t-esc="l_bank"/></td>
+                                            <td style="text-align:right;"><t t-esc="round(invoice_amount - (l_cash + l_bank),2)"/></td>
+                                            <td><t t-esc="move.work_order_id.employee_id.name"/></td>
+                                            <td><t t-esc="move.work_order_id.car_type_id.name"/></td>
+                                            <td><t t-esc="move.convert_english_to_arabic_letters(move.car_letters)"/>
+                                                <span t-esc="move.work_order_id.car_letters"/>
+                                                <span t-esc="move.work_order_id.car_number"/>
+                                            </td>
+                                            <td><t t-esc="move.work_order_id.car_size_id.name"/></td>
+                                           <td><t t-esc="move.work_order_id.shift_id.name"/></td>
+
+                                        </tr>
+                                    </t>
+                                </tbody>
+
+                                <tr class="summary-row">
+                                    <td colspan="5">Total</td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_cash_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_bank_all)"/></td>
+                                    <td><t t-esc="'{:,.2f}'.format(l_amount_total - (l_cash_all + l_bank_all))"/></td>
+                                    <td colspan="4"></td>
+                                </tr>
+                            </table>
+                            <p style="page-break-after:always;"></p>
+                        </t>
+                    </t>
+
+
+
+                </div>
+
+            </t>
+         </t>
+        </xpath>
+    </template>
+
+</odoo>

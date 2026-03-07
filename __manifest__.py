@@ -20,6 +20,9 @@
         'reports/shift_report_thermal.xml',
         'reports/shift_report_formal.xml',
         'reports/shift_report_actions.xml',
+      
+        'reports/report_view.xml',
+        'reports/work_order_daily_report.xml',
     ],
     'installable': True,
     'application': True,

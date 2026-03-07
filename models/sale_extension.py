@@ -29,22 +29,29 @@ class OilWorkOrder(models.Model):
         for rec in self:
             rec.shift_limit_type = shift_limit_flag
         
+    def services_btn(self):
+
+        res = super().services_btn()
+        if self.shift_limit_type == 'daily':
+            if self.created_order_date != self.shift_id.start_time_date:
+                raise UserError(_("THe order date not equal opened shift date - تاريخ امر العمل لايساوي تاريخ الشفت المفتوح "))
+            
+        return res
+        
     def _validate_entries(self):
 
         res = super()._validate_entries()
+        
         if self.shift_id.start_time_date:
             if self.created_order_date < self.shift_id.start_time_date:
                 raise UserError(_("THe order date is less than from shift start date - تاريخ امر العمل اقل من تاريخ بدء الشفت"))
            
             if self.shift_limit_type == 'daily':
-               
+                if self.created_order_date != self.shift_id.start_time_date:
+                    raise UserError(_("THe order date not equal opened shift date date - تاريخ امر العمل لايساوي تاريخ الشفت المفتوح "))
+        
                 if  fields.Date.today() != self.shift_id.start_time_date:
                     raise UserError('You must Close opened shift and open new shift before recording a sale.')
-
-                if self.created_order_date != self.shift_id.start_time_date:
-                    raise UserError('Warning .. The work order date does not match the open shift date.')
-                
-                 
 
         return res
 

@@ -96,7 +96,7 @@ class ReportAttendanceRecap(models.AbstractModel):
 
         if request_compelete:
 
-            l_shifts = self.env['oil.shift'].search([('id', 'in', request_compelete.work_order_id.shift_id.ids)])
+            l_shifts = self.env['oil.shift'].search([('id', 'in', l_shift_id)])
             l_companys = self.env['res.company'].search([('id', 'in', request_compelete.company_id.ids)])
             
             l_partner = self.env['res.partner'].search([('id', 'in', request_compelete.partner_id.ids)])

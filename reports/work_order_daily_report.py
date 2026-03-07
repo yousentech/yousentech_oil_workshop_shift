@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 class wo_report(models.TransientModel):
     _inherit = 'oil.wo.daily.report'
 
-    shift_id = fields.Many2one('oil.shift', string="shift",  )
+    shift_id = fields.Many2one('oil.shift', string="shift", domain="[('state', '=', 'closed'),('company_id','in',company_id)]")
     
     def get_report(self):
         """Call when button 'Get Report' clicked.

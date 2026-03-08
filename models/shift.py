@@ -5,7 +5,7 @@ from datetime import datetime, time
 class OilShift(models.Model):
     _name = 'oil.shift'
     _description = 'Oil Workshop Shift'
-    _order = 'start_time desc'
+    _order = 'start_time_date desc'
 
     name = fields.Char(string='Shift Reference', required=True, copy=False, readonly=True, default='New')
     user_id = fields.Many2one('res.users', string='Employee', default=lambda self: self.env.user, required=True)
@@ -35,7 +35,20 @@ class OilShift(models.Model):
 
 
     allow_change_shfit_num = fields.Boolean(compute="_compute_allow_change_shfit_num", default=lambda self: self.default_allow_change_shfit_num(),)
-    
+  
+  
+    created_shift_time = fields.Char(
+        string="Order Create Time",
+        readonly=True
+    )
+
+    @api.onchange('start_time_date')
+    def _onchange_start_time_date(self):
+        if self.start_time_date:
+            now = fields.Datetime.context_timestamp(self, fields.Datetime.now())
+            self.created_shift_time = now.strftime('%H:%M:%S')
+
+
     @api.depends("company_id")
     def _compute_allow_change_shfit_num(self):
         for rec in self:
@@ -67,13 +80,13 @@ class OilShift(models.Model):
 
         return super().create(vals)
 
-    @api.onchange('start_time_date')
-    def set_start_time_date(self):
-        for rec in self:
-            if rec.start_time_date:
-                old_time = rec.start_time.time() if rec.start_time else fields.Datetime.now().time()
-                print("old_time",old_time)
-                rec.start_time = datetime.combine(  rec.start_time_date, old_time  )
+    # @api.onchange('start_time_date')
+    # def set_start_time_date(self):
+    #     for rec in self:
+    #         if rec.start_time_date:
+    #             old_time = rec.start_time.time() if rec.start_time else fields.Datetime.now().time()
+    #             print("old_time",old_time)
+    #             rec.start_time = datetime.combine(  rec.start_time_date, old_time  )
 
 
 

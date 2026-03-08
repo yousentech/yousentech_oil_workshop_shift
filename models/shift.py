@@ -53,6 +53,7 @@ class OilShift(models.Model):
     @api.depends("company_id")
     def _compute_allow_change_shfit_num(self):
         for rec in self:
+            
             rec.allow_change_shfit_num = self.user_has_groups("yousentech_oil_workshop_shift.group_allow_modify_shift_in_wo")
 
     @api.model
